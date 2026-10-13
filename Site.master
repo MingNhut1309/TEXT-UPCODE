@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZANEPN CINEMA</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+<form id="form1" runat="server">
+    <header class="topbar">
+        <div class="wrap bar">
+            <a class="logo" href="~/Default.aspx" runat="server">ZANEPN CINEMA</a>
+            <nav>
+                <a href="~/Default.aspx" runat="server">Trang chủ</a>
+                <a href="~/Default.aspx#phim" runat="server">Phim</a>
+                <a href="~/LichSuDat.aspx" runat="server">Vé của tôi</a>
+                <asp:HyperLink ID="lnkAdmin" runat="server" NavigateUrl="~/Admin/Phim.aspx" Visible="false">Quản trị</asp:HyperLink>
+            </nav>
+            <div class="acct">
+                <asp:Literal ID="litUser" runat="server" />
+                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/DangNhap.aspx" CssClass="btn sm">Đăng nhập</asp:HyperLink>
+                <asp:HyperLink ID="lnkLogout" runat="server" NavigateUrl="~/DangXuat.aspx" CssClass="btn sm outline" Visible="false">Đăng xuất</asp:HyperLink>
+            </div>
+        </div>
+    </header>
+
+    <asp:ContentPlaceHolder ID="main" runat="server" />
+
+    <footer class="foot">© 2026 ZANEPN CINEMA · Đồ án website đặt vé xem phim</footer>
+</form>
+</body>
+</html>

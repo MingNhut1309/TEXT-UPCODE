@@ -1,0 +1,16 @@
+﻿ZANEPN CINEMA - ASP.NET Web Forms (C#) + SQL Server
+
+CÁCH CHẠY
+1. Mở SQL Server Management Studio, mở file CINEMAAAA.sql, bấm Execute (F5) để tạo CSDL CINEMA.
+2. Mở Visual Studio 2019/2022 -> File -> Open -> Web Site... -> chọn thư mục ZanepnCinema.
+   (Nếu không thấy mục Web Site, vào Visual Studio Installer, bật workload "ASP.NET and web development".)
+3. Mở Web.config, sửa Data Source cho đúng máy bạn:
+      SQL Server thường:  Data Source=.
+      SQL Express:        Data Source=.\SQLEXPRESS
+4. Chuột phải Default.aspx -> Set As Start Page -> bấm F5.
+
+TÀI KHOẢN MẪU: admin / 123 (quản trị), khach01 / 123 (khách).
+
+LƯU Ý: suất chiếu mẫu nằm ngày 10-11/10/2026. Trang hiển thị mọi suất nên vẫn đặt vé được.
+Muốn dời sang ngày mới, chạy trong SSMS (USE CINEMA):
+   UPDATE SuatChieu SET GioBatDau = DATEADD(DAY, 7, GioBatDau);
