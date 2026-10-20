@@ -7,6 +7,7 @@ public partial class SiteMaster : MasterPage
     {
         bool dangNhap = Session["user"] != null;
         lnkLogin.Visible = !dangNhap;
+        lnkRegister.Visible = !dangNhap;
         lnkLogout.Visible = dangNhap;
         lnkAdmin.Visible = Convert.ToString(Session["quyen"]) == "1";
         if (dangNhap)

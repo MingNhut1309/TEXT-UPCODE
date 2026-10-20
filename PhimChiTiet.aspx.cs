@@ -8,7 +8,7 @@ using System.Web.UI;
 public partial class PhimChiTiet : Page
 {
     int maPhim, maSuat;
-    DataRow suat;   // suất chiếu đang chọn (null nếu chưa chọn)
+    DataRow suat;   // suất chiếu đang chọn
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -158,7 +158,6 @@ public partial class PhimChiTiet : Page
             {
                 try
                 {
-                    // Giá luôn tính ở server, không tin dữ liệu từ trình duyệt
                     var gia = new List<int>();
                     int tong = 0;
                     foreach (int id in ids)
@@ -197,7 +196,7 @@ public partial class PhimChiTiet : Page
                 catch (SqlException ex)
                 {
                     tx.Rollback();
-                    // 2627 / 2601: vi phạm UNIQUE (MaSuat, MaGhe) = ghế vừa bị người khác đặt
+                    // Mã lỗi 2627 / 2601: Trùng khóa UNIQUE khi ghế vừa bị người khác đặt mất
                     lblMsg.Text = (ex.Number == 2627 || ex.Number == 2601)
                         ? "Có ghế vừa được người khác đặt. Vui lòng chọn lại."
                         : "Không thể đặt vé, vui lòng thử lại.";
@@ -211,8 +210,8 @@ public partial class PhimChiTiet : Page
         }
 
         if (maDonMoi > 0)
-            Response.Redirect("~/LichSuDat.aspx?moi=" + maDonMoi, true);
+            Response.Redirect("~/ThanhToan.aspx?madon=" + maDonMoi, true);
         else
-            BuildSeats();   // vẽ lại sơ đồ ghế với trạng thái mới nhất
+            BuildSeats();
     }
 }

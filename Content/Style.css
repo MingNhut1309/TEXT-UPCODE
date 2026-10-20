@@ -1043,12 +1043,558 @@ nav a { transition: color .2s ease; }
     .hero:after { right: -8px; bottom: 22px; }
     .card .poster { height: 300px; }
 }
-@media(max-width:480px) {
-    .wrap { padding-left: 16px; padding-right: 16px; }
-    .logo { font-size: 16px; letter-spacing: 1.5px; }
-    .logo:before { width: 30px; height: 30px; }
-    .hero h1 { letter-spacing: -1px; }
-    .hero .sub { font-size: 14px; }
-    .cta .btn { padding: 11px 15px; }
-    .sec-head { align-items: flex-start; }
+
+
+/* ===== Giao diện trang thành công, vé và thanh toán (GLOBAL) ===== */
+.success-page {
+    text-align: center;
+    padding: 30px 0;
 }
+
+.success-circle {
+    width: 64px;
+    height: 64px;
+    background: #e50914;
+    border-radius: 50%;
+    display: inline-grid;
+    place-items: center;
+    color: #fff;
+    font-size: 32px;
+    box-shadow: 0 0 20px rgba(229,9,20,.6);
+    margin-bottom: 15px;
+}
+
+.success-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.success-sub {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.red-text {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.green-text {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.e-ticket-card {
+    background: #18181c;
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+.ticket-header {
+    background: #121215;
+    padding: 15px 20px;
+    border-bottom: 1px solid #2a2a30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.badge-red {
+    background: #e50914;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.ticket-body {
+    display: flex;
+    padding: 25px;
+    gap: 30px;
+}
+
+.ticket-info {
+    flex: 1;
+}
+
+.lbl-ten {
+    color: #e50914;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.film-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    margin: 5px 0 20px;
+}
+
+.row-info {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+}
+
+    .row-info .muted {
+        color: #888;
+        font-size: 13px;
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    .row-info p {
+        color: #fff;
+        font-weight: 500;
+        margin: 0;
+    }
+
+.seat-badge {
+    background: #e50914;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.total-row-pay {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #2a2a30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-highlight {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.ticket-qr {
+    width: 220px;
+    text-align: center;
+    border-left: 1px dashed #333;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-big {
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.ticket-qr p {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+.ticket-footer-note {
+    background: #121215;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: #f39c12;
+    border-top: 1px solid #2a2a30;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    max-width: 950px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.checkout-box {
+    background: #18181c;
+    border: 1px solid #2a2a30;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.pm-item {
+    background: #222228;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+    .pm-item:hover {
+        border-color: #e50914;
+    }
+
+.red-btn {
+    background: #e50914;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .red-btn:hover {
+        background: #ff1e2a;
+    }
+    /* Giao diện trang thành công và vé */
+    .success-page {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .success-circle {
+        width: 64px;
+        height: 64px;
+        background: #e50914;
+        border-radius: 50%;
+        display: inline-grid;
+        place-items: center;
+        color: #fff;
+        font-size: 32px;
+        box-shadow: 0 0 20px rgba(229,9,20,.6);
+        margin-bottom: 15px;
+    }
+
+    .success-title {
+        font-size: 32px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+
+    .success-sub {
+        color: #aaa;
+        margin-bottom: 30px;
+    }
+
+    .red-text {
+        color: #e50914;
+        font-weight: bold;
+    }
+
+    .green-text {
+        color: #2ecc71;
+        font-weight: bold;
+    }
+
+    .e-ticket-card {
+        background: #18181c;
+        border: 1px solid #2a2a30;
+        border-radius: 12px;
+        text-align: left;
+        max-width: 900px;
+        margin: 0 auto 30px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    }
+
+    .ticket-header {
+        background: #121215;
+        padding: 15px 20px;
+        border-bottom: 1px solid #2a2a30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #ddd;
+    }
+
+    .badge-red {
+        background: #e50914;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .ticket-body {
+        display: flex;
+        padding: 25px;
+        gap: 30px;
+    }
+
+    .ticket-info {
+        flex: 1;
+    }
+
+    .lbl-ten {
+        color: #e50914;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .film-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #fff;
+        margin: 5px 0 20px;
+    }
+
+    .row-info {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 15px;
+    }
+
+        .row-info .muted {
+            color: #888;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .row-info p {
+            color: #fff;
+            font-weight: 500;
+            margin: 0;
+        }
+
+    .seat-badge {
+        background: #e50914;
+        color: #fff;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .total-row-pay {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #2a2a30;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price-highlight {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e50914;
+    }
+
+    .ticket-qr {
+        width: 220px;
+        text-align: center;
+        border-left: 1px dashed #333;
+        padding-left: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .qr-big {
+        width: 150px;
+        height: 150px;
+        background: #fff;
+        padding: 8px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .ticket-qr p {
+        font-size: 12px;
+        color: #aaa;
+        margin: 0;
+    }
+
+    .ticket-footer-note {
+        background: #121215;
+        padding: 12px 20px;
+        font-size: 13px;
+        color: #f39c12;
+        border-top: 1px solid #2a2a30;
+    }
+
+    .success-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .checkout-container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+        max-width: 950px;
+        margin: 20px auto;
+        text-align: left;
+    }
+
+    .checkout-box {
+        background: #18181c;
+        border: 1px solid #2a2a30;
+        border-radius: 10px;
+        padding: 25px;
+    }
+
+    .payment-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .pm-item {
+        background: #222228;
+        padding: 12px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        border: 1px solid transparent;
+        transition: 0.2s;
+    }
+
+        .pm-item:hover {
+            border-color: #e50914;
+        }
+
+    .red-btn {
+        background: #e50914;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+        .red-btn:hover {
+            background: #ff1e2a;
+        }
+/* ===== Style cho ô mật khẩu kèm icon con mắt ===== */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+    .password-container input {
+        width: 100%;
+        padding-right: 45px; /* Tạo khoảng trống bên phải cho icon con mắt */
+    }
+
+.eye-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--mut);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+}
+
+    .eye-btn:hover {
+        color: var(--txt);
+    }
+/* ===== Style cho Hộp thoại xác nhận đăng xuất ===== */
+.cinema-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInModal 0.25s ease;
+}
+
+.cinema-modal-box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--r);
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+    .cinema-modal-box h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--txt);
+    }
+
+    .cinema-modal-box p {
+        margin: 0 0 24px;
+        font-size: 14px;
+        color: var(--mut);
+        line-height: 1.5;
+    }
+
+.cinema-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+

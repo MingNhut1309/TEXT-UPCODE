@@ -39,7 +39,7 @@ public static class Db
         }
     }
 
-    /// <summary>Giá ghế: thường = giá suất, VIP = +20%, đôi = x2.</summary>
+    /// <summary>Quy tắc giá ghế: Thường = giá suất, VIP = +20%, Đôi = x2.</summary>
     public static int GiaGhe(int giaSuat, string loaiGhe)
     {
         if (loaiGhe == "VIP") return giaSuat * 12 / 10;
@@ -62,7 +62,6 @@ public static class Db
         }
     }
 
-    /// <summary>Truy vấn danh sách đơn (nối thêm WHERE / ORDER BY phía sau).</summary>
     public const string DonSelect =
         "SELECT d.MaDon, d.TenDangNhap, d.ThoiGianDat, d.TongTien, d.TrangThai, " +
         "p.TenPhim, s.GioBatDau, pc.TenPhong, " +
@@ -74,7 +73,6 @@ public static class Db
         "JOIN Phim p ON p.MaPhim = s.MaPhim " +
         "JOIN PhongChieu pc ON pc.MaPhong = s.MaPhong ";
 
-    /// <summary>Thanh toán hoặc hủy đơn (hủy thì giải phóng ghế). user = null nghĩa là quản trị.</summary>
     public static void XuLyDon(string lenh, int maDon, string user)
     {
         string dk = user == null ? "" : " AND TenDangNhap=@u";
@@ -92,7 +90,6 @@ public static class Db
     }
 }
 
-/// <summary>Trang cơ sở: chỉ quản trị (QuyenHan = 1) mới vào được.</summary>
 public class AdminPage : System.Web.UI.Page
 {
     protected override void OnInit(EventArgs e)

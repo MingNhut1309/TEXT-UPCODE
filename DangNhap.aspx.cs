@@ -6,9 +6,20 @@ public partial class DangNhap : Page
 {
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+        string input = txtUser.Text.Trim();
+        string pass = txtPass.Text;
+
+        if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(pass))
+        {
+            lblMsg.Text = "Vui lòng nhập đầy đủ thông tin.";
+            return;
+        }
+
+        // Cho phép đăng nhập bằng TenDangNhap hoặc Email/SoDienThoai
         DataTable dt = Db.Query(
-            "SELECT TenDangNhap, HoTen, QuyenHan FROM TaiKhoan WHERE TenDangNhap=@u AND MatKhau=@p AND HoatDong=1",
-            Db.P("@u", txtUser.Text.Trim()), Db.P("@p", txtPass.Text));
+            "SELECT TenDangNhap, HoTen, QuyenHan FROM TaiKhoan " +
+            "WHERE (TenDangNhap=@u OR Email=@u OR SoDienThoai=@u) AND MatKhau=@p AND HoatDong=1",
+            Db.P("@u", input), Db.P("@p", pass));
 
         if (dt.Rows.Count == 0)
         {
