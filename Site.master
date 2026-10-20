@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZANEPN CINEMA</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+</head>
+<body>
+<form id="form1" runat="server">
+    <header class="topbar">
+        <div class="wrap bar">
+            <a class="logo" href="~/Default.aspx" runat="server">ZANEPN CINEMA</a>
+            <nav>
+                <a href="~/Default.aspx" runat="server">Trang chủ</a>
+                <a href="~/Default.aspx#phim" runat="server">Phim</a>
+                <!-- Thêm mục Khuyến mãi vào thanh menu -->
+                <a href="~/KhuyenMai.aspx" runat="server">Khuyến mãi</a>
+                <a href="~/LichSuDat.aspx" runat="server">Vé của tôi</a>
+                <asp:HyperLink ID="lnkAdmin" runat="server" NavigateUrl="~/Admin/Phim.aspx" Visible="false">Quản trị</asp:HyperLink>
+            </nav>
+            <div class="acct">
+                <asp:Literal ID="litUser" runat="server" />
+                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/DangNhap.aspx" CssClass="btn sm">Đăng nhập</asp:HyperLink>
+                <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/DangKy.aspx" CssClass="btn sm outline">Đăng ký</asp:HyperLink>
+                
+                <!-- Nút Đăng xuất kết hợp Modal xác nhận -->
+                <asp:HyperLink ID="lnkLogout" runat="server" CssClass="btn sm outline" Visible="false" NavigateUrl="javascript:void(0);" onclick="showLogoutModal(); return false;">Đăng xuất</asp:HyperLink>
+            </div>
+        </div>
+    </header>
+
+    <asp:ContentPlaceHolder ID="main" runat="server" />
+
+    <footer class="foot">© 2026 ZANEPN CINEMA · Đồ án website đặt vé xem phim</footer>
+
+    <!-- ===== HỘP THOẠI XÁC NHẬN ĐĂNG XUẤT (MODAL) ===== -->
+    <div id="logoutModal" class="cinema-modal-overlay" style="display: none;">
+        <div class="cinema-modal-box">
+            <h3>Xác nhận đăng xuất</h3>
+            <p>Bạn có chắc chắn muốn đăng xuất khỏi tài khoản của mình không?</p>
+            <div class="cinema-modal-actions">
+                <button type="button" class="btn sm outline" onclick="closeLogoutModal()">Hủy</button>
+                <asp:HyperLink ID="lnkConfirmLogout" runat="server" NavigateUrl="~/DangXuat.aspx" CssClass="btn sm" Style="background: var(--r);">Đăng xuất</asp:HyperLink>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function showLogoutModal() {
+            var modal = document.getElementById('logoutModal');
+            if (modal) modal.style.display = 'flex';
+        }
+        function closeLogoutModal() {
+            var modal = document.getElementById('logoutModal');
+            if (modal) modal.style.display = 'none';
+        }
+    </script>
+</form>
+</body>
+</html>
